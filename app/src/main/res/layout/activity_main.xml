@@ -273,7 +273,7 @@
                     android:checked="false"
                     android:drawableTop="@drawable/ic_more_sugar_48dp"
                     android:padding="10dp"
-                    android:text="قليل "
+                    android:text="قليل"
                     android:textAlignment="center" />
             </RadioGroup>
 
