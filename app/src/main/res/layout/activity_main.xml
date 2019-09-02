@@ -35,7 +35,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/product_price" />
 
             <Button
                 android:id="@+id/minus_btn"
@@ -48,7 +48,7 @@
                 android:text="-"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/order_counter_txt_id"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/product_price" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -68,8 +68,8 @@
                 android:background="@color/bill_color"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/milk_radio_group">
+
+                app:layout_constraintTop_toBottomOf="@id/main_grid2_layout_id">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,7 +80,6 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="1"
-
                         android:layout_height="wrap_content"
                         android:text="الاجمالي "
                         android:textStyle="bold"
@@ -118,6 +117,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="1"
+                        android:id="@+id/tax_value_txt_view"
                         android:layout_height="wrap_content"
                         android:text="10 % "
                         android:textStyle="bold"
@@ -171,119 +171,208 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <RadioGroup
-                android:id="@+id/sugar_radio_group"
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/main_grid_layout_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@id/view2">
+                android:layout_marginStart="8dp"
+                android:listSelector="@drawable/grid_sel"
+                app:columnCount="4"
+                app:layout_constraintStart_toEndOf="@id/sugar_text_view_id"
+                app:layout_constraintTop_toBottomOf="@id/view2"
+                app:rowCount="1">
 
-                <RadioButton
-                    android:id="@+id/more_sugar_radio_btn"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="false"
-                    android:drawableTop="@drawable/ic_more_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="سكر زيادة"
-                    android:textColor="@color/sugar_txt_color"
-                    android:textAlignment="center" />
+                    android:clickable="true"
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="0"
 
-                <RadioButton
-                    android:id="@+id/mid_sugar_radio_btn"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0">
+
+                    <ImageView
+                        android:id="@+id/img_view1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+                        android:id="@+id/txt_view1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/sugar_txt_color"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="false"
-                    android:drawableTop="@drawable/ic_mid_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="سكر خفيف"
-                    android:textAlignment="center" />
+                    android:layout_marginStart="10dp"
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0">
 
-                <RadioButton
-                    android:id="@+id/no_sugar_radio_btn"
+                    <ImageView
+                        android:id="@+id/img_view2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+                        android:id="@+id/txt_view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/sugar_txt_color"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="true"
-                    android:drawableTop="@drawable/ic_no_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="بدون سكر"
-                    android:textAlignment="center" />
-            </RadioGroup>
+                    android:layout_marginStart="10dp"
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0">
 
+                    <ImageView
+                        android:id="@+id/img_view3"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
 
-            <RadioGroup
-                android:id="@+id/milk_radio_group"
+                    <TextView
+                        android:id="@+id/txt_view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="3"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0">
+
+                    <ImageView
+                        android:id="@+id/img_view4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+                        android:id="@+id/txt_view4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/main_grid2_layout_id"
                 android:layout_width="wrap_content"
-                android:textColor="@color/sugar_txt_color"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@id/sugar_radio_group">
+                android:layout_marginStart="8dp"
+                android:listSelector="@drawable/grid_sel"
+                app:columnCount="4"
+                app:layout_constraintStart_toEndOf="@id/milk_text_view_id"
+                app:layout_constraintTop_toBottomOf="@id/main_grid_layout_id"
+                app:rowCount="1">
 
-                <RadioButton
-                    android:id="@+id/more_milk_radio_btn"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/sugar_txt_color"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="true"
-                    android:drawableTop="@drawable/ic_no_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="كتير"
-                    android:textAlignment="center" />
+                    android:clickable="true"
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0">
 
-                <RadioButton
-                    android:id="@+id/mid_milk_radio_btn"
+                    <ImageView
+                        android:id="@+id/img_view11"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+
+                        android:id="@+id/txt_view11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:textColor="@color/sugar_txt_color"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="false"
-                    android:drawableTop="@drawable/ic_mid_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="متوسط"
-                    android:textAlignment="center" />
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    android:layout_marginStart="10dp"
+                    app:layout_row="0">
 
-                <RadioButton
-                    android:id="@+id/no_milk_radio_btn"
+                    <ImageView
+                        android:id="@+id/img_view22"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+                        android:id="@+id/txt_view22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/sugar_txt_color"
-                    android:background="@drawable/custom_btn_radio"
-                    android:button="@android:color/transparent"
-                    android:checked="false"
-                    android:drawableTop="@drawable/ic_more_sugar_48dp"
-                    android:padding="10dp"
-                    android:text="قليل"
-                    android:textAlignment="center" />
-            </RadioGroup>
+                    android:gravity="fill"
+                    android:orientation="vertical"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    android:layout_marginStart="10dp"
+                    app:layout_row="0">
+
+                    <ImageView
+                        android:id="@+id/img_view33"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_pudding" />
+
+                    <TextView
+                        android:id="@+id/txt_view33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="سكر زيادة" />
+                </LinearLayout>
+
+            </androidx.gridlayout.widget.GridLayout>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/sugar_text_view_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="40dp"
-                android:text="السكر"
+                android:layout_marginTop="30dp"
+
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -292,20 +381,20 @@
 
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/milk_text_view_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="82dp"
-                android:text="اللبن"
+                android:layout_marginTop="60dp"
+
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView3" />
+                app:layout_constraintTop_toBottomOf="@id/sugar_text_view_id" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -342,7 +431,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/product_price" />
 
             <TextView
                 android:id="@+id/order_counter_txt_id"
@@ -355,7 +444,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/plus_btn"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/product_price" />
 
             <View
                 android:id="@+id/view"
